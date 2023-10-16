@@ -1,4 +1,4 @@
-package com.calificacion.service;
+package com.mcsv.calificacion;
 
 import org.junit.jupiter.api.Test;
 import org.springframework.boot.test.context.SpringBootTest;
