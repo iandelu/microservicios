@@ -6,3 +6,15 @@ spring:
     mongodb:
       uri: mongodb://localhost:27017
       database: microservicios
+
+  application:
+    name: CALIFICACION-SERVICE
+
+  eureka:
+    instance:
+      prefer-ip-address: true
+    client:
+      fetch-registry: ture
+      register-with-eureka: true
+      service-url:
+        defaultZone: http://localhost:8761/eureka

@@ -1,10 +1,9 @@
 package com.raccoon.usuarioservicio.entity;
 
-import jakarta.persistence.Column;
-import jakarta.persistence.Entity;
-import jakarta.persistence.Id;
-import jakarta.persistence.Table;
+import jakarta.persistence.*;
 import lombok.Data;
+
+import java.util.List;
 
 @Data
 @Entity
@@ -23,5 +22,8 @@ public class User {
 
     @Column(name = "info")
     private String info;
+
+    @Transient
+    private List<Review> reviews;
 
 }
