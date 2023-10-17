@@ -18,7 +18,12 @@ public class ReviewController {
 
     @PostMapping
     public ResponseEntity<Review> createReview(@RequestBody Review review){
-        return ResponseEntity.status(HttpStatus.CREATED).body(review);
+        return ResponseEntity.status(HttpStatus.CREATED).body(reviewService.create(review));
+    }
+
+    @GetMapping()
+    public ResponseEntity<List<Review>> getAllReviews(){
+        return ResponseEntity.ok(reviewService.getReviews());
     }
 
     @GetMapping("/fromUser/{userId}")
