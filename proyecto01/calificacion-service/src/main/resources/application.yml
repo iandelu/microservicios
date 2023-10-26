@@ -8,13 +8,13 @@ spring:
       database: microservicios
 
   application:
-    name: CALIFICACION-SERVICE
+    name: REVIEW-SERVICE
 
   eureka:
     instance:
       prefer-ip-address: true
     client:
-      fetch-registry: ture
+      fetch-registry: true
       register-with-eureka: true
       service-url:
         defaultZone: http://localhost:8761/eureka

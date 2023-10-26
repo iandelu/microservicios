@@ -43,11 +43,11 @@ public class UserServiceImpl implements UserService{
     @Override
     public User getUser(String userId) {
         User user = repository.findById(userId).orElseThrow(() -> new ResourceNotFoundException("User not found with ID"));
-        Review[] reviewsFromUser = restTemplate.getForObject("http://localhost:8083/reviews/fromUser/"+user.getUserId(), Review[].class);
+        Review[] reviewsFromUser = restTemplate.getForObject("http://REVIEW-SERVICE/reviews/fromUser/"+user.getUserId(), Review[].class);
 
         List<Review> reviewsList = Arrays.asList(reviewsFromUser);
         List<Review> reviewsWithHotel = reviewsList.stream().map(c -> {
-            ResponseEntity<Hotel> forEntity = restTemplate.getForEntity("http://localhost:8082/hotels/"+c.getHotelId(), Hotel.class);
+            ResponseEntity<Hotel> forEntity = restTemplate.getForEntity("http://HOTEL-SERVICE/hotels/"+c.getHotelId(), Hotel.class);
             logger.info("{}",forEntity.getStatusCode());
             c.setHotel(forEntity.getBody());
             return c;
